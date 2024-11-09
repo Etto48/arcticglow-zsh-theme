@@ -2,6 +2,8 @@
 
 This is a theme for Oh My Zsh. It's based on [Agnoster](https://gist.github.com/3712874).
 
+![Example](example.png)
+
 ## Installation
 
 - Clone the repository
