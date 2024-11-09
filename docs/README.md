@@ -1,6 +1,6 @@
-# Artic Glow
+# Arctic Glow
 
-This is a theme for Oh My Zsh. It's based on [Agnoster](https://gist.github.com/3712874).
+This is a theme for [Oh My Zsh](https://ohmyz.sh). It's based on [Agnoster](https://gist.github.com/3712874).
 
 ![Example](example.png)
 
