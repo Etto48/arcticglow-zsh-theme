@@ -1,11 +1,12 @@
 # Arctic Glow
 
-This is a theme for [Oh My Zsh](https://ohmyz.sh). It's based on [Agnoster](https://gist.github.com/3712874).
+Arctic Glow is a theme for [Oh My Zsh](https://ohmyz.sh) based on [Agnoster](https://gist.github.com/3712874).
 
 ![Example](example.png)
 
 ## Installation
 
+- You need to have [Oh My Zsh](https://ohmyz.sh) and a [Nerd Font](https://www.nerdfonts.com) installed.
 - Clone the repository
 
   ```sh
