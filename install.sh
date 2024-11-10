@@ -96,7 +96,7 @@ if [ $OS_NAME == "UNKNOWN" ]; then
 fi
 echo Detected OS: $OS_NAME
 
-sed -i "s/###PROMPT_OS###/\$${OS_NAME}_SYMBOL/" $TARGET_FILE
+sed -i "s/###PROMPT_OS###/\$ARCTICGLOW_${OS_NAME}_SYMBOL/" $TARGET_FILE
 
 echo "Successfullly installed $THEME_NAME."
 echo "Please restart your terminal to see the changes."
