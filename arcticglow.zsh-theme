@@ -4,12 +4,19 @@
 ARCTICGLOW_BASE_COLOR='#ffffff'
 ARCTICGLOW_TEXT_COLOR='#000000'
 ARCTICGLOW_ACCENT_COLOR='#7764d8'
-ARCTICGLOW_VCS_UNTRACKED_COLOR='#ff908f'
-ARCTICGLOW_VCS_DIRTY_COLOR='#ffd666'
-ARCTICGLOW_VCS_CLEAN_COLOR='#91ffb2'
-ARCTICGLOW_ERROR_COLOR='#ff5940'
-ARCTICGLOW_ROOT_COLOR=$ARCTICGLOW_VCS_DIRTY_COLOR
-ARCTICGLOW_BACKGROUND_JOBS_COLOR='#5ec4ff'
+ARCTICGLOW_RED_COLOR='#ff5940'
+ARCTICGLOW_YELLOW_COLOR='#ffd666'
+ARCTICGLOW_GREEN_COLOR='#91ffb2'
+ARCTICGLOW_BLUE_COLOR='#5ec4ff'
+
+ARCTICGLOW_VCS_UNTRACKED_COLOR=$ARCTICGLOW_RED_COLOR
+ARCTICGLOW_VCS_DIRTY_COLOR=$ARCTICGLOW_YELLOW_COLOR
+ARCTICGLOW_VCS_CLEAN_COLOR=$ARCTICGLOW_GREEN_COLOR
+ARCTICGLOW_ERROR_COLOR=$ARCTICGLOW_RED_COLOR
+ARCTICGLOW_ROOT_COLOR=$ARCTICGLOW_YELLOW_COLOR
+ARCTICGLOW_AWS_COLOR=$ARCTICGLOW_GREEN_COLOR
+ARCTICGLOW_AWS_PRODUCTION_COLOR=$ARCTICGLOW_RED_COLOR
+ARCTICGLOW_BACKGROUND_JOBS_COLOR=$ARCTICGLOW_BLUE_COLOR
 
 # Symbols
 ARCTICGLOW_SEGMENT_SEPARATOR="\ue0b0" # 
@@ -25,7 +32,7 @@ ARCTICGLOW_ALPINE_SYMBOL="\uf300" # 
 ARCTICGLOW_MACOS_SYMBOL="\uf179" # 
 ARCTICGLOW_LINUX_SYMBOL="\uf17c" # 
 ARCTICGLOW_WINDOWS_SYMBOL="\uf17a" # 
-ARCTICGLOW_BRANCH_SYMBOL="\ue0a0" # 
+ARCTICGLOW_BRANCH_SYMBOL="\ue725" # 
 ARCTICGLOW_BRANCH_AHEAD_AND_BEHIND_SYMBOL="\u21c5" # ⇅
 ARCTICGLOW_BRANCH_AHEAD_SYMBOL="\u21b1" # ↱
 ARCTICGLOW_BRANCH_BEHIND_SYMBOL="\u21b0" # ↰
@@ -43,7 +50,7 @@ ARCTICGLOW_BACKGROUND_JOBS_SYMBOL="\uf013" # 
 ARCTICGLOW_MERCURIAL_SYMBOL="\uf223" # 
 
 
-arcticglow-prompt () {
+arcticglow_prompt () {
     RETVAL=$?
 
     local CURRENT_BG='NONE'
@@ -279,17 +286,17 @@ arcticglow-prompt () {
 
     #AWS Profile:
     # - display current AWS_PROFILE name
-    # - displays yellow on red if profile name contains 'production' or
+    # - displays yellow if profile name contains 'production' or
     #   ends in '-prod'
     # - displays black on green otherwise
     prompt_aws() {
         [[ -z "$AWS_PROFILE" || "$SHOW_AWS_PROMPT" = false ]] && return
         case "$AWS_PROFILE" in
             *-prod|*production*) 
-                prompt_segment "AWS: ${AWS_PROFILE:gs/%/%%}" $VSC_DIRTY $ARCTICGLOW_TEXT_COLOR
+                prompt_segment "AWS: ${AWS_PROFILE:gs/%/%%}" $ARCTICGLOW_AWS_PRODUCTION_COLOR $ARCTICGLOW_TEXT_COLOR
                 ;;
             *) 
-                prompt_segment "AWS: ${AWS_PROFILE:gs/%/%%}" $ARCTICGLOW_VCS_CLEAN_COLOR $ARCTICGLOW_TEXT_COLOR
+                prompt_segment "AWS: ${AWS_PROFILE:gs/%/%%}" $ARCTICGLOW_AWS_COLOR $ARCTICGLOW_TEXT_COLOR
                 ;;
         esac
     }
@@ -313,4 +320,4 @@ arcticglow-prompt () {
     prompt_end
 }
 
-PROMPT='%{%f%b%k%}$(arcticglow-prompt) '
+PROMPT='%{%f%b%k%}$(arcticglow_prompt) '
