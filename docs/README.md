@@ -10,13 +10,13 @@ Arctic Glow is a theme for [Oh My Zsh](https://ohmyz.sh) based on [Agnoster](htt
 - Clone the repository
 
   ```sh
-  git clone https://github.com/Etto48/articglow-zsh-theme.git
+  git clone https://github.com/Etto48/arcticglow-zsh-theme.git
   ```
 
 - Run the installation script
 
   ```sh
-  cd articglow-zsh-theme
+  cd arcticglow-zsh-theme
   ./install.sh
   ```
 
