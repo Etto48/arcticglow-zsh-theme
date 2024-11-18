@@ -32,7 +32,7 @@ get_os_name() {
     os_name="UNKNOWN($os)"
     case $os in
         "Darwin")
-            os_name="MAC"
+            os_name="MACOS"
             ;;
         "Linux")
             os_name="LINUX"
