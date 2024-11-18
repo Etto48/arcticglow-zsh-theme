@@ -19,7 +19,7 @@ echo_info() {
 
 sed_portable() {
     local os=$1
-    if [[ $os == "MAC" ]]; then
+    if [[ $os == "MACOS" ]]; then
         sed -i '' "$2" $3
     else
         sed -i "$2" $3
