@@ -94,6 +94,15 @@ if [ $OS_NAME == "UNKNOWN" ]; then
     echo "Warning: Unknown OS detected."
     exit 1
 fi
+
+if grep -q "export VIRTUAL_ENV_DISABLE_PROMPT" $ZSHRC_PATH; then
+    echo "Detected VIRTUAL_ENV_DISABLE_PROMPT in $ZSHRC_PATH"
+else
+    echo "Setting VIRTUAL_ENV_DISABLE_PROMPT in $ZSHRC_PATH"
+    echo "# Override the default python virtualenv prompt" >> $ZSHRC_PATH
+    echo "export VIRTUAL_ENV_DISABLE_PROMPT=1" >> $ZSHRC_PATH
+fi
+
 echo Detected OS: $OS_NAME
 
 sed -i "s/###PROMPT_OS###/\$ARCTICGLOW_${OS_NAME}_SYMBOL/" $TARGET_FILE
