@@ -114,7 +114,7 @@ else
 fi
 
 echo "Setting theme in $ZSHRC_PATH"
-sed_portable $OS_NAME 's/^ZSH_THEME=.*/ZSH_THEME="arcticglow"/' $ZSHRC_PATH
+sed_portable $OS_NAME 's/^ZSH_THEME=.*/ZSH_THEME="'$THEME_NAME'"/' $ZSHRC_PATH
 
 echo "Configuring theme in $ZSHRC_PATH"
 
@@ -129,5 +129,5 @@ fi
 
 sed_portable $OS_NAME "s/###PROMPT_OS###/\$ARCTICGLOW_${OS_NAME}_SYMBOL/" $TARGET_FILE
 
-echo "Successfullly installed $THEME_NAME."
+echo "Successfully installed $THEME_NAME."
 echo_info "Please restart your terminal to see the changes."
